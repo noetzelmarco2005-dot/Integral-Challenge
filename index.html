@@ -90,6 +90,9 @@ function checkAnswer() {
             spread: 80,
             origin: { y: 0.6 } 
         });
+        let audio = new Audio("tada.mp3");
+        audio.play();
+        
         result.innerHTML = `
             <h2 class="success">✅ Authentifizierung erfolgreich</h2>
             <p>Du hast erfolgreich bewiesen, dass du der Kunst des Integrierens würdig bist.</p>
