@@ -64,10 +64,12 @@
     </p>
 
     <p>
-        Evaluiere folgendes Integral:
+        Evaluieren Sie folgendes Integral, geben Sie dabei Ihr Ergebnis als Dezimalzahl auf zwei Nachkommastellen gerundet an
     </p>
+<p>**Hinweis**:Nutzen Sie Euler's Formel $$eˆix=cos(x)+isin(x)$$</p>
 
-    <h2>$$\int_{0}^{1} \frac{3x^2}{1 + x^3} \, dx$$
+
+    <h2>$$\int_{0}^{pi} \-{e^x}{cos(x)} \, dx$$
 </h2>
 
     <input type="text" id="answer" placeholder="Antwort">
@@ -83,7 +85,7 @@ function checkAnswer() {
     const result = document.getElementById("result");
 
     if (
-        answer === "ln(2)" || answer === "0.69"
+        answer === "12.07"
     ) {
         confetti({
             particleCount: 150,
