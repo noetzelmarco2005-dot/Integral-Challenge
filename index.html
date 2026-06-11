@@ -69,10 +69,10 @@
         <p>
     Geben Sie dabei Ihr Ergebnis als Dezimalzahl auf zwei Nachkommastellen gerundet an
     </p>
-    <p> __Hinweis__ :Nutzen Sie Euler's Formel $$eˆix=cos(x)+isin(x)$$</p>
+    <p> <strong>Hinweis</stron>:Nutzen Sie Euler's Formel $$eˆix=cos(x)+isin(x)$$</p>
 
 
-    <h2>$$\int_{0}^{$pi$} \{(-)e^x}{cos(x)} \, dx$$
+    <h2>$$\int_{0}^{$pi$} \{e^x}{cos(x)} \, dx$$
 </h2>
 
     <input type="text" id="answer" placeholder="Antwort">
@@ -88,7 +88,7 @@ function checkAnswer() {
     const result = document.getElementById("result");
 
     if (
-        answer === "12.07"
+        answer === "-12.07"
     ) {
         confetti({
             particleCount: 150,
