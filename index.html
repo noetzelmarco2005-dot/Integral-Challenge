@@ -66,7 +66,7 @@
     <p>
         Evaluieren Sie folgendes Integral!
     </p>
-    <h2>$$\int_{0}^{\pi} e^x\cdot \cos(x) \, dx$$</h2>
+    <h2>$$\int_{0}^{\pi} -e^x\cdot \cos(x) \, dx$$</h2>
         <p>
     Geben Sie dabei Ihr Ergebnis als Dezimalzahl auf zwei Nachkommastellen gerundet an
     </p>
@@ -87,7 +87,7 @@ function checkAnswer() {
     const result = document.getElementById("result");
 
     if (
-        answer === "-12.07"
+        answer === "12.07"
     ) {
         confetti({
             particleCount: 150,
