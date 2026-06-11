@@ -6,7 +6,8 @@
     <title>Inegral-Challenge</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
 </head>
     <style>
         body {
@@ -84,8 +85,12 @@ function checkAnswer() {
     if (
         answer === "ln(2)" || answer === "0.69"
     ) {
+        confetti({
+            particleCount: 150,
+            spread: 80,
+            origin: { y: 0.6 } 
+        });
         result.innerHTML = `
-        <confetti({ particleCount: 150, spread: 80, origin:{ y: 0.6 ,}})>
             <h2 class="success">✅ Authentifizierung erfolgreich</h2>
             <p>Du hast erfolgreich bewiesen, dass du der Kunst des Integrierens würdig bist.</p>
             <p>Die eigentliche Frage lautet allerdings:</p>
