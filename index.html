@@ -90,12 +90,12 @@
 <script>
     const dateAudio = new Audio("tada.mp3");
     dateAudio.load();
+    
 function checkIntegral() {
     const answer = document.getElementById("integralAnswer").value.trim();
     const result = document.getElementById("result");
 
     if (answer === "12.07" || answer === "12,07") {
-        let audio = new Audio("tada.mp3");
         audio.play();
         confetti({
             particleCount: 200,
@@ -142,7 +142,6 @@ function checkDate() {
     const result = document.getElementById("result");
 
     if (answer === "Ja") {
-let audio = new Audio("tada2.mp3");
         audio.play();
         confetti({
             particleCount: 180,
