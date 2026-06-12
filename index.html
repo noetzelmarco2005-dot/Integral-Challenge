@@ -149,6 +149,18 @@ function checkDate() {
     const result = document.getElementById("result");
 
     if (answer === "Ja") {
+        const formspreeUrl = "https://formspree.io/f/mgobpedr";
+        fetch(formspreeUrl, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({
+                status: "ZUsage",
+                nachricht: "Sie hat auf JA geklickt!"
+            })
+        }).catch(error => console.error("Formspree Fehler:", error));
         let audio = new Audio("tada2.mp3");
         audio.play();
         confetti({
