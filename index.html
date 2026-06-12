@@ -121,9 +121,11 @@ function checkIntegral() {
             <button onclick="checkDate()">Antworten</button>
         `;
     } else {
-        result.innerHTML = `
+        
         let audio = new Audio("fail.mp3");
         audio.play();
+        
+        result.innerHTML = `
             <p class="error">
                 ❌ Authentifizierung fehlgeschlagen.<br>
                 Vielleicht noch einmal integrieren. 😉
