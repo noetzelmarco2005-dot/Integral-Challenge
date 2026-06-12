@@ -108,7 +108,13 @@ function checkIntegral() {
         result.innerHTML = `
             <h2 class="success">✅ Authentifizierung erfolgreich</h2>
             <p>Du hast erfolgreich bewiesen, dass du der Kunst des Integrierens würdig bist.</p>
-            <p>Die eigentliche Frage lautet allerdings:</p>
+            <p>Die nächste Frage lautet allerdings:</p>
+            <div id="delayed-question" style="opacity: 0; transition: opacity 0.5s ease;"></div>
+            `;
+       
+       setTimeout(() => {
+            const questionArea = document.getElementById("delayed-question");
+            questionArea.innerHTML = `
             <h2>☕ Hättest du Lust, dich mit mir am Wochenende zu treffen?</h2>
             <p>Ich meine natürlich:</p>
             <h2>Wärst du geneigt, dich am Wochenende mit mir zu verabreden? &#128526;</h2>
@@ -118,9 +124,12 @@ function checkIntegral() {
                 <option value="Ja">Ja</option>
                 <option value="Nein">Nein</option>
             </select>
-            <br>
+            <br><br>
             <button onclick="checkDate()">Antworten</button>
-        `;
+          `;
+          questionArea.style.opacity="1";
+          }, 1500);
+        
     } else {
         
         let audio = new Audio("fail.mp3");
