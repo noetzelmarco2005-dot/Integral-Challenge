@@ -122,6 +122,8 @@ function checkIntegral() {
         `;
     } else {
         result.innerHTML = `
+        let audio = new Audio("fail.mp3");
+        audio.play();
             <p class="error">
                 ❌ Authentifizierung fehlgeschlagen.<br>
                 Vielleicht noch einmal integrieren. 😉
@@ -145,8 +147,8 @@ function checkDate() {
         audio.play();
 
         result.innerHTML = `
-            <h2 class="success">🎉 Absolut fantastisch!</h2>
-            <h2>Nice, dann bis zu diesem Wochenende &#x1F60A;</h2>
+            <h2 class="success">🎉 Absolut fantastisch! Oder wohl eher superb hehe</h2>
+            <h2>Nice, dann sehen wir uns dieses Wochenende &#x1F60A;</h2>
         `;
     } else if (answer === "Nein") {
         result.innerHTML = `
