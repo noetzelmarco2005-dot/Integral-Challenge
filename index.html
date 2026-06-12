@@ -140,6 +140,9 @@ function checkDate() {
             spread: 100,
             origin: { y: 0.6 }
         });
+        
+        let audio = new Audio("tada2.mp3");
+        audio.play();
 
         result.innerHTML = `
             <h2 class="success">🎉 Absolut fantastisch!</h2>
