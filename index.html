@@ -93,14 +93,15 @@ function checkIntegral() {
     const result = document.getElementById("result");
 
     if (answer === "12.07" || answer === "12,07") {
+        let audio = new Audio("tada.mp3");
+        audio.load();
+        audio.play();
         confetti({
             particleCount: 150,
             spread: 80,
             origin: { y: 0.6 } 
         });
         
-        let audio = new Audio("tada.mp3");
-        audio.play();
         
         document.getElementById("challenge-area").style.display = "none";
 
@@ -139,14 +140,16 @@ function checkDate() {
     const result = document.getElementById("result");
 
     if (answer === "Ja") {
+let audio = new Audio("tada2.mp3");
+        audio.load();
+        audio.play();
         confetti({
             particleCount: 180,
             spread: 100,
             origin: { y: 0.6 }
         });
         
-        let audio = new Audio("tada2.mp3");
-        audio.play();
+        
 
         result.innerHTML = `
             <h2 class="success">🎉 Herzlichen Glückwünsch, du hast alles richtig beantwortet!</h2>
