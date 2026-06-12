@@ -109,6 +109,39 @@ function checkAnswer() {
     <option value="Ja">Ja</option>
     <option value="Nein">Nein</option>
 </select>
+<script>
+function checkAnswer() {
+    // 1. Wert aus dem Dropdown auslesen und Leerzeichen entfernen
+    const answer = document.getElementById("answer").value.trim();
+    const result = document.getElementById("result");
+
+    // 2. Hier ist deine if-Bedingung platziert:
+    if (answer === "Ja") {
+        
+        // Hier kommt der Code hin, wenn sie "Ja" auswählt:
+        confetti({
+            particleCount: 150,
+            spread: 80,
+            origin: { y: 0.6 }
+        });
+        
+        let audio = new Audio("tada.mp3");
+        audio.play();
+
+        result.innerHTML = '<h2>Nice, dann bis zum diesem Wochenende &#x1F60A</h2>'; 
+        // (Hier kannst du eintragen, was nach dem "Ja" auf dem Bildschirm stehen soll)
+
+    } else if (answer === "Nein") {
+        
+        // Optional: Hier kannst du Code einfügen, falls sie "Nein" auswählt
+        result.innerHTML = '<p>hhmm wie wäre es mit ja</p>';
+
+    } else {
+        // Falls sie gar nichts ausgewählt hat (also noch auf "-- Bitte wählen --" steht)
+        alert("Bitte wähle eine Antwort aus! 😉");
+    }
+}
+</script>
 
 
         `;
