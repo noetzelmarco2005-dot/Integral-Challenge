@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inegral-Challenge</title>
+    <title>Integral-Challenge</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
-</head>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -26,12 +25,14 @@
             box-shadow: 0 0 15px rgba(0,0,0,0.1);
         }
 
-        input {
+        input, select {
             padding: 10px;
             font-size: 18px;
-            width: 120px;
+            width: 160px;
             text-align: center;
             margin-top: 15px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
         }
 
         button {
@@ -39,6 +40,14 @@
             margin-top: 15px;
             font-size: 16px;
             cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
         }
 
         #result {
@@ -59,91 +68,57 @@
 <div class="card">
     <h1>Integral-Challenge &#128029;</h1>
 
-    <p>
-        Bitte weisen Sie nach, dass Sie integrieren können.
-    </p>
-
-    <p>
-        Evaluieren Sie folgendes Integral!
-    </p>
+    <p>Bitte weisen Sie nach, dass Sie integrieren können.</p>
+    <p>Evaluieren Sie folgendes Integral!</p>
+    
     <h2>$$\int_{0}^{\pi} -e^x\cdot \cos(x) \, dx$$</h2>
-        <p>
-    Geben Sie dabei Ihr Ergebnis als Dezimalzahl auf zwei Nachkommastellen gerundet an
-    </p>
-    <p> <strong>Hinweis:</strong> Nutzen Sie Euler's Formel $$e^{ix}=cos(x)+isin(x)$$</p>
+    
+    <p>Geben Sie dabei Ihr Ergebnis als Dezimalzahl auf zwei Nachkommastellen gerundet an.</p>
+    <p><strong>Hinweis:</strong> Nutzen Sie Eulers Formel $$e^{ix}=\cos(x)+i\sin(x)$$</p>
 
     <p>Das nächste Integral wird dich überraschen, also bleib dran hehe &#128539;</p>
 
-    <input type="text" id="answer" placeholder="Antwort">
-    <br>
-    <button onclick="checkAnswer()">Absenden</button>
+    <div id="challenge-area">
+        <input type="text" id="integralAnswer" placeholder="Antwort">
+        <br>
+        <button onclick="checkIntegral()">Absenden</button>
+    </div>
 
     <div id="result"></div>
 </div>
 
 <script>
-function checkAnswer() {
-    const answer = document.getElementById("answer").value.trim();
+function checkIntegral() {
+    const answer = document.getElementById("integralAnswer").value.trim();
     const result = document.getElementById("result");
 
-    if (
-        answer === "12.07" || answer === "12,07"
-    ) {
+    if (answer === "12.07" || answer === "12,07") {
         confetti({
             particleCount: 150,
             spread: 80,
             origin: { y: 0.6 } 
         });
+        
         let audio = new Audio("tada.mp3");
         audio.play();
         
+        document.getElementById("challenge-area").style.display = "none";
+
         result.innerHTML = `
             <h2 class="success">✅ Authentifizierung erfolgreich</h2>
             <p>Du hast erfolgreich bewiesen, dass du der Kunst des Integrierens würdig bist.</p>
             <p>Die eigentliche Frage lautet allerdings:</p>
-            <h2>☕ Hättest du Lust, sich mit mir am Wochenende zu treffen?</h2>
+            <h2>☕ Hättest du Lust, dich mit mir am Wochenende zu treffen?</h2>
             <p>Ich meine natürlich:</p>
             <h2>Wärst du geneigt, dich am Wochenende mit mir zu verabreden? &#128526;</h2>
-            <select id="answer">
-    <option value="">-- Bitte wählen --</option>
-    <option value="Ja">Ja</option>
-    <option value="Nein">Nein</option>
-</select>
-<script>
-function checkAnswer() {
-    // 1. Wert aus dem Dropdown auslesen und Leerzeichen entfernen
-    const answer = document.getElementById("answer").value.trim();
-    const result = document.getElementById("result");
-
-    // 2. Hier ist deine if-Bedingung platziert:
-    if (answer === "Ja") {
-        
-        // Hier kommt der Code hin, wenn sie "Ja" auswählt:
-        confetti({
-            particleCount: 150,
-            spread: 80,
-            origin: { y: 0.6 }
-        });
-        
-        let audio = new Audio("tada.mp3");
-        audio.play();
-
-        result.innerHTML = '<h2>Nice, dann bis zum diesem Wochenende &#x1F60A</h2>'; 
-        // (Hier kannst du eintragen, was nach dem "Ja" auf dem Bildschirm stehen soll)
-
-    } else if (answer === "Nein") {
-        
-        // Optional: Hier kannst du Code einfügen, falls sie "Nein" auswählt
-        result.innerHTML = '<p>hhmm wie wäre es mit ja</p>';
-
-    } else {
-        // Falls sie gar nichts ausgewählt hat (also noch auf "-- Bitte wählen --" steht)
-        alert("Bitte wähle eine Antwort aus! 😉");
-    }
-}
-</script>
-
-
+            
+            <select id="dateAnswer">
+                <option value="">-- Bitte wählen --</option>
+                <option value="Ja">Ja</option>
+                <option value="Nein">Nein</option>
+            </select>
+            <br>
+            <button onclick="checkDate()">Antworten</button>
         `;
     } else {
         result.innerHTML = `
@@ -152,6 +127,38 @@ function checkAnswer() {
                 Vielleicht noch einmal integrieren. 😉
             </p>
         `;
+    }
+}
+
+function checkDate() {
+    const answer = document.getElementById("dateAnswer").value;
+    const result = document.getElementById("result");
+
+    if (answer === "Ja") {
+        confetti({
+            particleCount: 180,
+            spread: 100,
+            origin: { y: 0.6 }
+        });
+
+        result.innerHTML = `
+            <h2 class="success">🎉 Absolut fantastisch!</h2>
+            <h2>Nice, dann bis zu diesem Wochenende &#x1F60A;</h2>
+        `;
+    } else if (answer === "Nein") {
+        result.innerHTML = `
+            <p>hmmm wie wäre es mit Ja? 😉 Try again!</p>
+            <br>
+            <select id="dateAnswer">
+                <option value="">-- Bitte wählen --</option>
+                <option value="Ja">Ja</option>
+                <option value="Nein">Nein</option>
+            </select>
+            <br>
+            <button onclick="checkDate()">Antworten</button>
+        `;
+    } else {
+        alert("Bitte wähle eine Antwort aus! 😉");
     }
 }
 </script>
