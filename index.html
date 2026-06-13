@@ -113,6 +113,7 @@ function checkIntegral() {
             <p>Warte kurz...</p>
             <div id="delayed-question" style="opacity: 0; transition: opacity 0.5s ease;"></div>
             `;
+        audio.addEventListener("ended", function() {
         audio = new Audio("trommelwirbel.mp3");
     audio.play();
        
@@ -133,6 +134,7 @@ function checkIntegral() {
           `;
           questionArea.style.opacity="1";
           }, 11000);
+        });
         
     } else {
         
