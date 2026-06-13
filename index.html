@@ -111,12 +111,10 @@ function checkIntegral() {
             <p>Denn die nächste Frage lautet:</p>
             <p>&#129345; &#129345; &#129345;</p>
             <p>Warte kurz...</p>
-            `;
-            let audio = new Audio("trommelwirbel.mp3");
-    audio.play();
-        `
             <div id="delayed-question" style="opacity: 0; transition: opacity 0.5s ease;"></div>
             `;
+        let audio = new Audio("trommelwirbel.mp3");
+    audio.play();
        
        setTimeout(() => {
             const questionArea = document.getElementById("delayed-question");
